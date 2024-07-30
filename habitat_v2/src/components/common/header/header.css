@@ -16,12 +16,12 @@ header a {
   font-weight: 500;
 }
 header a:hover {
-  color: #27ae60;
+  color: rgba(30, 144, 255, 0.8);
 }
 header span {
   width: auto;
   padding: 0px 6px;
-  background: #27ae60;
+  background: rgba(30, 144, 255, 0.8);
   border-radius: 50px;
   color: #ffffff;
   margin-right: 4px;

@@ -13,8 +13,11 @@ import {
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { LoginImage } from "../assets";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
 
-export default function Login() {
+const Login = ({isLoggedIn, onLogin}) =>{
+    const navigate=useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +26,41 @@ export default function Login() {
     const handleClick = () => {
         setShowPassword(!showPassword);
     };
+
+    const handleLogin = async ()=>{
+        const loginData ={
+            email: email,
+            password: password
+        };
+
+        try{
+            console.log("avant res");
+            const response= await axios.post("http://localhost:3000/login", loginData);
+            console.log("Login Successful: ", response.data);
+
+            onLogin();
+
+            navigate('/home');
+            toast({
+                title: 'Login successful.',
+                description: "Redirection to the home page.",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            });
+
+        }catch(error){
+            console.error('Login failed', error);
+            toast({
+                title: 'Login Failed.',
+                description: "Check information.",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+            });
+        }
+
+    }
 
 
     return (
@@ -42,14 +80,14 @@ export default function Login() {
                             Welcome to the login Screen
                         </Text>
                     </Center>
-                    <Flex mt={{ base: "6", md: "30" }}
-                          border="1px"
-                          borderColor="blue.500"
-                          borderRadius={7}
-                          alignItems="center"
-                          justifyContent="center"
-                          flexDirection="column"
-                          height={{ base: "auto", md: "400px" }}>
+                    <form onSubmit={handleLogin}>   <Flex mt={{ base: "6", md: "30" }}
+                                                          border="1px"
+                                                          borderColor="blue.500"
+                                                          borderRadius={7}
+                                                          alignItems="center"
+                                                          justifyContent="center"
+                                                          flexDirection="column"
+                                                          height={{ base: "auto", md: "400px" }}>
                         <Box>
                             <Text p={10} fontSize="xl" fontWeight="bold" color="blue.500">
                                 Login
@@ -89,7 +127,6 @@ export default function Login() {
                                     </Button>
                                 </InputRightElement>
                             </InputGroup>
-
                             <Button
                                 _hover={{ bg: "blue.200" }}
                                 color="white"
@@ -98,20 +135,27 @@ export default function Login() {
                                 size={"lg"}
                                 isLoading={false}
                                 loadingText="Submitting"
-                                onClick={() =>
-                                    toast({
-                                        title: 'Login successful.',
-                                        description: "Redirection to the home page.",
-                                        status: 'success',
-                                        duration: 9000,
-                                        isClosable: true,
-                                    })}
+                                onClick={handleLogin}
+
                             >
                                 Submit
                             </Button>
                         </Stack>
+                        <Center>
+                            <Text
+                                p={4}
+                                fontSize={{ base: "lg", md: "2lg" }}
+                                fontWeight="bold"
+                                color="blue.500"
+                                textAlign="center"
+                            >
+                                Don't you have an account? <u><Link to={"/register"}> Sign Up</Link></u>
+                            </Text>
+                        </Center>
 
-                    </Flex>
+                    </Flex></form>
+
+
 
                 </Box >
             </Center>
@@ -119,3 +163,6 @@ export default function Login() {
         </Flex>
     );
 }
+
+
+export default Login

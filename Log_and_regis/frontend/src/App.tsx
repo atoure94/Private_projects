@@ -1,12 +1,12 @@
 
-import Login from "./Login/Login.tsx";
+import MainRoute from "./routes/route.tsx";
 
 function App() {
 
   return (
-    <>
-      <Login/>
-    </>
+    <MainRoute>
+
+    </MainRoute>
   )
 }
 

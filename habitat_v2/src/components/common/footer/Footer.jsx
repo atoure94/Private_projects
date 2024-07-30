@@ -9,10 +9,10 @@ const Footer = () => {
         <div className='container'>
           <div className='send flex'>
             <div className='text'>
-              <h1>Do You Have Questions ?</h1>
-              <p>We'll help you to grow your career and growth.</p>
+              <h1>Avez-vous des questions??</h1>
+              <p>Nous vous aiderons à faire progresser votre carrière et à atteindre la croissance.</p>
             </div>
-            <button className='btn5'>Contact Us Today</button>
+            <button className='btn5'>Contactez-nous aujourd'hui</button>
           </div>
         </div>
       </section>
@@ -21,9 +21,9 @@ const Footer = () => {
         <div className='container'>
           <div className='box'>
             <div className='logo'>
-              <img src='../images/logo-light.png' alt='' />
-              <h2>Do You Need Help With Anything?</h2>
-              <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p>
+              LOGO
+              <h2>Avez-vous besoin d'aide ?</h2>
+              <p>Recevez des mises à jour, des offres spéciales, des tutoriels et des réductions directement dans votre boîte de réception chaque mois.</p>
 
               <div className='input flex'>
                 <input type='text' placeholder='Email Address' />
@@ -31,7 +31,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
+          {/*
           {footer.map((val) => (
             <div className='box'>
               <h3>{val.title}</h3>
@@ -41,11 +41,11 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          ))}
+          ))}*/}
         </div>
       </footer>
       <div className='legal'>
-        <span>© 2021 RentUP. Designd By GorkCoder.</span>
+        <span>© 2024 Holicorp. Designd By Chouchou des nanas.</span>
       </div>
     </>
   )

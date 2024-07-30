@@ -11,12 +11,8 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Featured />
       <Recent />
-      <Awards />
       <Location />
-      <Team />
-      <Price />
     </>
   )
 }

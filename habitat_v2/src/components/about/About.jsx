@@ -8,10 +8,10 @@ const About = () => {
   return (
     <>
       <section className='about'>
-        <Back name='About Us' title='About Us - Who We Are?' cover={img} />
+        <Back name=' ' title='A propos de nous - Qui sommes-nous?' cover={img} />
         <div className='container flex mtop'>
           <div className='left row'>
-            <Heading title='Our Agency Story' subtitle='Check out our company story and work process' />
+            {/*<Heading title='Our Agency Story' subtitle='Check out our company story and work process'/>*/}
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
